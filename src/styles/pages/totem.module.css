@@ -1,0 +1,38 @@
+.card {
+    background-color: #003641;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+
+}
+
+.main {
+    text-align: center;
+}
+
+
+.main  h1{
+    margin-top: 100px;
+    margin-bottom: 50px;
+    color: #ffff;
+}
+
+
+.main button {
+    border: none;
+    border-radius: 4px;
+    width: 400px;
+    height: 80px;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+
+.main button:hover {
+    background-color: rgb(177, 174, 174);
+}
+
