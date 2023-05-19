@@ -3,11 +3,8 @@
 
 ## FrontEnd
 
-    [ ] Colocar um modal, para quando clicar na opção de ssenha desejada, com testo de "imprimindo" com timer e logo após dar mensagem de "retirar a senha e aguardar a chamada"
-
-    [ ] colocar opção de senha preferencial 
-
-    [ x ] Colocar Timer para quando apertar o botão de tirar a senha demorar alguns segundos para ir para a pagina principal do totem
+    [ ] Colocar opção de enviar a senha no whats da pessoa 
+    
 
 
 ## Backend

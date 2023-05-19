@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@300;700&family=Lexend:wght@400;700&family=Ubuntu:wght@400;500;700&display=swap');
+.main {
+    
+    background-color: #003641;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: none;
+    border: none;
+}
+
+.nav {
+    width: 600px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: #FFFFFF;
+    border-color: aliceblue;
+    border: none;
+}
+
+.nav h1 {
+    color: #003641;
+    font-size: 60px;
+    font-weight: 700;
+    font-family: 'Asap';
+}
+
+
+.nav h2 {
+    color: #003641;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: 'Asap';
+}

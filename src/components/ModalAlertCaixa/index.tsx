@@ -1,7 +1,7 @@
 import styles from '@/styles/modal.module.css'
 import { useState } from 'react'
 
-export default function ModalAlertCaixa (props) {
+export default function ModalAlertCaixa (props: any) {
     const [status, setStatus] = useState('')
 
 

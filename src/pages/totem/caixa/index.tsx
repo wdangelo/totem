@@ -7,6 +7,7 @@ import { Card } from "react-bootstrap";
 import styles from '@/styles/pages/totem.module.css'
 import sytlesTotemCaixa from '@/styles/components/TotemCaixa.module.css'
 import TiketAlert from "@/components/TiketAlert";
+import NavTotem from "@/components/NavTotem";
 
 export default function caixa() {
 
@@ -67,11 +68,12 @@ export default function caixa() {
           <title>Totem</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
-        <div style={{ height: '100vh', width: '100vw' }}>
-        <Card className={styles.card} style={{width: "100%", height: "100%", zIndex: 9998}}>
+        <div style={{ height: '100vh', width: '100vw', backgroundColor: '#003641' }}>
+        <NavTotem />
+        <Card className={styles.card} style={{zIndex: 9998}}>
           <main className={styles.main}>
-            <h1>Retire sua senha</h1>
             <h1>Atendimento Caixa</h1>
+            <h2>Escolha a opção desejada</h2>
             <div >
 
                 <p><button onClick={IncrementalNumberCaixaNormal}>Normal</button></p>
