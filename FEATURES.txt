@@ -1,0 +1,10 @@
+## FrontEnd
+
+    [ ] Colocar opção de enviar a senha no whats da pessoa 
+    [ ] para cada opção de retirada de senha colocar uma sigla
+    
+
+
+## Backend
+
+    [ ] Criar rota que armazena as senhas retiradas por categoria, a rota deve mandar imprimir a senha em uma impressora termica, deve conter data e hora que a senha foi retirada.

@@ -1,0 +1,48 @@
+.card {
+    height: 100%;
+    background-color: #003641;
+    
+    flex-grow: 1;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.title {
+    color: white;
+    font-size: 62px;
+    font-weight: bold;
+}
+
+.dateTime {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.dateTimeBody {
+    background-color: #00AE9D;
+    height: 250px;
+    width: 300px;
+    margin-top: 100px;
+    border-radius: 20px;
+}
+
+.dateTimeBody h3 {
+    margin-top: 40px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.dateTimeBody h2 {
+    margin-top: 40px;
+    font-size: 60px;
+    font-weight: bold;
+}
+

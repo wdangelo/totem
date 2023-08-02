@@ -2,7 +2,7 @@
 import Head from "next/head";
 import { useRouter } from 'next/router';
 import { useState } from "react";
-
+import { format } from 'date-fns';
 import { Card } from "react-bootstrap";
 
 import styles from '@/styles/pages/totem.module.css'
@@ -10,11 +10,9 @@ import sytlesTotemCaixa from '@/styles/components/TotemCaixa.module.css'
 import TiketAlert from "@/components/TiketAlert";
 import NavTotem from "@/components/NavTotem";
 
+import api, {createTicketApi} from "../../../services/axios"
+
 export default function relacionamento() {
-
-    const [numberCx, setNumberCx] = useState<number>(1);
-
-    const [numberRel, setNumberRel] = useState<number>(1);
 
     const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -22,36 +20,53 @@ export default function relacionamento() {
 
     const router = useRouter()
   
-    async function IncrementalNumberCaixaNormal() {
-      
-      setNumberCx(numberCx + 1 )
-  
-      const paddedNumber = numberCx.toString().padStart(4, '0')
-  
-      console.log('RLNR' + paddedNumber)
+    async function handleRegister(tiket: string, category: string) {
+
+      let tiket_num = await api.get('/tickets/list-first-rel')
+        .then((res) => { 
+          const tiket_num = res.data.tiket_num as number
+          return tiket_num
+        }).catch((err) => {
+          const tiket_num = 0
+          return tiket_num
+        })
+
+        const ticketDate = await api.get('/tickets/list-first-rel')
+        .then((res) => { 
+          const date = res.data.created_at
+          return date
+        }).catch((err) => {
+          const tiket_num = 0
+          return tiket_num
+        })
+        
+        let dateNow = new Date()
+
+        const formatDateTicket = new Date(ticketDate)
+        const dateFormtNow = format(dateNow, 'dd/MM/yyyy')
+        const ticketDateFormat = format(formatDateTicket, 'dd/MM/yyyy')
 
       setIsModalOpen(true)
-      setActiveButton('button1')
+      setActiveButton('RELACIONAMENTO')
       setTimeout(() => {
-        setIsModalOpen(false)
-        router.push('/totem')
-      }, 5000)
-
-      
-
-    }
+        if(tiket_num === undefined || tiket_num === 0 || dateFormtNow !== ticketDateFormat) {
+          
+          createTicketApi({
+            tiket,
+            num: 1 ,
+            category 
+          })
+        }
   
-
-    function IncrementalNumberCaixaPreferencial() {
-      
-      setNumberRel(numberRel + 1 )
-  
-      const paddedNumber = numberRel.toString().padStart(4, '0')
-  
-      console.log('RLPR' + paddedNumber)
-      setActiveButton('button2')
-      setIsModalOpen(true)
-      setTimeout(() => {
+        if(tiket_num) {
+          let num = tiket_num+=1
+          setActiveButton('RELACIONAMENTO')
+          createTicketApi({
+            tiket,
+            num,
+            category
+          })
+        }
         setIsModalOpen(false)
         router.push('/totem')
       }, 5000)
@@ -61,7 +76,7 @@ export default function relacionamento() {
 
     const handleCloseModal = () => {
       setIsModalOpen(false)
-      setActiveButton('')
+      //setActiveButton('')
     }
     return(
         <>
@@ -77,19 +92,19 @@ export default function relacionamento() {
             <h2>Escolha a opção desejada</h2>
             <div >
 
-                <p><button onClick={IncrementalNumberCaixaNormal}>Normal</button></p>
-                <p><button onClick={IncrementalNumberCaixaPreferencial}>Preferencial</button></p>
+            <p><button onClick={() => handleRegister("RELNRL", "RELACIONAMENTO")} >Normal</button></p>
+                <p><button onClick={() => handleRegister("RELPRF", "RELACIONAMENTO_PREF")} >Preferencial</button></p>
 
                 {
                 
-                isModalOpen && activeButton == 'button1' && (
+                isModalOpen && activeButton == 'RELACIONAMENTO' && (
                   <div className={sytlesTotemCaixa.modal}>
                     <TiketAlert onClose={handleCloseModal} />
                   </div>
                 )}
                               {
                 
-                isModalOpen && activeButton == 'button2' && (
+                isModalOpen && activeButton == 'RELACIONAMENTO_PREF' && (
                   <div className={sytlesTotemCaixa.modal}>
                     <TiketAlert onClose={handleCloseModal} />
                   </div>

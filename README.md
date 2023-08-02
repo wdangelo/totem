@@ -1,12 +1,10 @@
-# Features
+# Introdução
 
+Sistema de organização de filas e chamadas para atendimento
 
-## FrontEnd
+# Uso
 
-    [ ] Colocar opção de enviar a senha no whats da pessoa 
-    
-
-
-## Backend
-
-    [ ] Criar rota que armazena as senhas retiradas por categoria, a rota deve mandar imprimir a senha em uma impressora termica, deve conter data e hora que a senha foi retirada.
+- utilizar nodejs versão 18.15.0
+- instalar o yarn "gerenciador de pacotes"
+- baixar o repositorio 
+- 
